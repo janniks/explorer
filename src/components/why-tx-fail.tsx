@@ -32,7 +32,7 @@ const fetcher = (url: RequestInfo | URL) => fetch(url).then(res => res.json());
 const WhyTxFail = ({ tx }: { tx: Transaction | MempoolTransaction }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const { data, error } = useSWR(`http://localhost:3001/api/tx/${tx.tx_id}`, fetcher);
+  const { data, error } = useSWR(`https://hackathon-txfail.vercel.app/api/tx/${tx.tx_id}`, fetcher);
 
   if (error) return null;
   if (!data) return null;
